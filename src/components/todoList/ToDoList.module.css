@@ -1,0 +1,8 @@
+.newTask{
+	display: flex;
+	justify-content: space-between;
+}
+.container{
+	max-width: 600px;
+	margin: 0 auto;
+}

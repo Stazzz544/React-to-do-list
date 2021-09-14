@@ -1,0 +1,24 @@
+
+.headerWrapper {
+
+}
+
+.headerTitle {
+font-size: 25px;
+}
+
+.linksWrapper{
+margin-top: 20px;
+margin-bottom: 20px;	
+}
+
+
+.link{
+	margin-right: 30px;
+	font-size: 20px;
+	color: black;
+}
+
+.selected {
+	color: rgb(255, 0, 0);
+}

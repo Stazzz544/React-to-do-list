@@ -26,7 +26,8 @@ const ToDoList = (props) => {
 	return (
 		<div className={s.container}>
 			<div className={s.newTaskBtnWrapper} >
-				<input className={s.newTaskInput}  
+				<input className={s.newTaskInput} 
+						 autocomplete="off" 
 						 onInput={onAddLetter} 
 						 type="text" 
 						 id='task'

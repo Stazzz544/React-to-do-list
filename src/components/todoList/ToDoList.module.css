@@ -41,6 +41,7 @@
 	position: absolute;
 	left: 8px;
    top: 7px;
+	transition: .3s all;
 }
 
 
@@ -52,6 +53,12 @@
 	transition: 0.4s all;
 }
 
-.newTaskPushBtn:hover .newTaskInput{
+.newTaskPushBtn:hover{
 	background-color: rgb(229, 212, 186);
+}
+
+.newTaskInput:focus + .newTaskInputLabel{
+	left: -10px;
+	top: -10px;
+	transform: scale(0.7);
 }

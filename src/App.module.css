@@ -93,14 +93,18 @@ h6 {
 
 .mainWrapper{
 	background-image:url('./img/bg.jpg'); 
-	height: 100vh;
+	background-attachment: fixed;
+	min-height: 100vh;
 	padding: 25px 0;
+	display: flex;
+	justify-content: center;
 }
 
 .mainContainer {
 	max-width: 400px;
 	min-height: 300px;
-	margin: 0 auto;
+	margin: 0 15px;
+	
 	padding: 15px;
 	/* background: url('./img/paper.jpg') */
 	border-radius: 10px;

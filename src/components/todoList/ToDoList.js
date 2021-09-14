@@ -10,7 +10,8 @@ const ToDoList = (props) => {
 
 	const onAddTask = () => {
 		const task = props.letters;
-		props.addTask({ task: task, check: false, })
+		if (task) props.addTask({ task: task, check: false, })
+		
 	}
 
 	const onRemoveTask = (task) => {
@@ -25,7 +26,13 @@ const ToDoList = (props) => {
 	return (
 		<div className={s.container}>
 			<div className={s.newTaskBtnWrapper} >
-				<input className={s.newTaskInput}  onInput={onAddLetter} type="text" value={props.letters} />
+				<input className={s.newTaskInput}  
+						 onInput={onAddLetter} 
+						 type="text" 
+						 id='task'
+						 value={props.letters} />
+				<label className={s.newTaskInputLabel} 
+						 for="task">Enter new task...</label>
 				<button className={s.newTaskPushBtn}  onClick={onAddTask}>Add new task</button>
 			</div>
 			<ul>

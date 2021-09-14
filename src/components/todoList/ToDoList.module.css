@@ -26,13 +26,32 @@
 
 .newTaskBtnWrapper{
 	display: flex;
+	position: relative;
 }
 .newTaskInput{
+
 	flex: 1 1 auto;
-	border: 1px solid black;
+	border-bottom: 1px solid black;
 	padding: 5px 10px;
 	margin-right: 10px;
+	background-color: transparent;
 }
-.newTaskPushBtn{
 
+.newTaskInputLabel{
+	position: absolute;
+	left: 8px;
+   top: 7px;
+}
+
+
+
+.newTaskPushBtn{
+	padding: 5px 10px;
+	border-radius: 15px;
+	background-color: blanchedalmond;
+	transition: 0.4s all;
+}
+
+.newTaskPushBtn:hover .newTaskInput{
+	background-color: rgb(229, 212, 186);
 }

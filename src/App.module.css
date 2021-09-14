@@ -92,7 +92,7 @@ h6 {
 /*------reset styles end-------*/
 
 .mainWrapper{
-	background-image:url(./img/bg.jpg);
+	background-image:url('./img/bg.jpg'); 
 	height: 100vh;
 	padding: 25px 0;
 }
@@ -101,7 +101,8 @@ h6 {
 	max-width: 400px;
 	min-height: 300px;
 	margin: 0 auto;
-	padding: 10px;
-	border: solid 1px #000000;
-	background: url(./img/paper.jpg)
+	padding: 15px;
+	/* background: url('./img/paper.jpg') */
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.418);
 }

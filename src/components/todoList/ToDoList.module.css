@@ -3,7 +3,7 @@
 	display: flex;
 	align-items: center;
 	border: 1px solid black;
-	height: 35px;
+	padding: 4px 0;
 }
 .container{
 	max-width: 400px;
@@ -19,9 +19,14 @@
 	flex: 1 1 auto;
 }
 
-.newTaskBtn{
+.removeTaskBtn{
 	margin: 0 10px;
 	cursor: pointer;
+	transition: 0.4s all;
+}
+
+.removeTaskBtn:hover{
+	fill: rgb(151, 22, 22)
 }
 
 .newTaskBtnWrapper{
@@ -44,7 +49,9 @@
 	transition: .3s all;
 }
 
-
+.newTaskOutItem{
+	word-break: keep-all;
+}
 
 .newTaskPushBtn{
 	padding: 5px 10px;
@@ -57,8 +64,10 @@
 	background-color: rgb(229, 212, 186);
 }
 
-.newTaskInput:focus + .newTaskInputLabel{
-	left: -10px;
-	top: -10px;
-	transform: scale(0.7);
+.done{
+	text-decoration: line-through;
+}
+.noTasks{
+	font-size: 20px;
+	margin-top: 40px;
 }

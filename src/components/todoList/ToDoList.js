@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import s from './ToDoList.module.css'
 
-
 const ToDoList = (props) => {
-
+	const [inputFocus, setInputActive] = useState('');
+	
 	const onAddLetter = (e) => {
 		const letter = e.target.value
 		props.addLetter(letter)
@@ -10,16 +11,20 @@ const ToDoList = (props) => {
 
 	const onAddTask = () => {
 		const task = props.letters;
-		if (task) props.addTask({ task: task, check: false, })
-		
+		if (task) props.addTask({ 
+			task: task,
+			check: false, 
+			id: Date.now() 
+		})
+		setInputActive('')
 	}
 
 	const onRemoveTask = (task) => {
-		if (task.check === true) props.removeTask(task.task)
+		if (task.check === true) props.removeTask(task.id)
 	}
 
-	const onCheckTask = (task) => {
-		props.checkTask(task)
+	const onCheckTask = (id) => {
+		props.checkTask(id)
 	}
 
 
@@ -27,21 +32,36 @@ const ToDoList = (props) => {
 		<div className={s.container}>
 			<div className={s.newTaskBtnWrapper} >
 				<input className={s.newTaskInput} 
-						 autocomplete="off" 
+						 autoComplete="off" 
+						 onClick={() => {setInputActive('focus')}}
 						 onInput={onAddLetter} 
 						 type="text" 
 						 id='task'
 						 value={props.letters} />
-				<label className={s.newTaskInputLabel} 
-						 for="task">Enter new task...</label>
+				<label className={`${s.newTaskInputLabel} ${inputFocus}`} 
+						 htmlFor="task">Enter new task...</label>
 				<button className={s.newTaskPushBtn}  onClick={onAddTask}>Add new task</button>
 			</div>
 			<ul>
-				{props.tasks.map((e, index) =>
-					<li className={s.newTask} key={index}>
-						<input className={s.newTaskCheckbox} onChange={() => onCheckTask(e.task)} checked={e.check} type="checkbox" />
+				{props.tasks.length === 0 ?
+				<div className={s.noTasks}>No tasks now...</div>
+				:
+				<div>
+					{props.tasks.map((e) =>
+					<li className={s.newTask} key={e.id}>
+						<input className={s.newTaskCheckbox} 
+								 onChange={() => onCheckTask(e.id)} 
+								 checked={e.check} 
+								 type="checkbox" />
+
+						{e.check === false ?
 						<div className={s.newTaskOut} >{e.task}</div>
-						<div className={s.newTaskBtn} onClick={() => onRemoveTask(e)}>
+						:
+						<div className={`${s.newTaskOut} ${s.done}`} >{e.task}</div>
+						}
+
+						<div className={s.removeTaskBtn}
+							  onClick={() => onRemoveTask(e)}>
 							<svg 
 							width="25" 
 							xmlns="http://www.w3.org/2000/svg" 
@@ -53,6 +73,9 @@ const ToDoList = (props) => {
 						</div>
 					</li>
 				)}
+				</div>
+				}
+				
 			</ul>
 		</div>
 	);

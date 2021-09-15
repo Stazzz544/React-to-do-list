@@ -25,31 +25,34 @@ const ToDoReducer = (state = initialState, action) => {
 		case REMOVE_TASK:
 			return {
 				...state,
-				tasks:[...state.tasks.filter(e => e.task !== action.task)]
+				tasks:[...state.tasks.filter(e => e.id !== action.id)]
 			}
 		case CHECK_TASK:
+			
 			return {
 				...state,
 				tasks: [...state.tasks.map(e => {
-					if (e.task === action.task && e.check === false) {
+					if (e.id === action.id && e.check === false) {
 						return({
 							task: e.task, 
-							check: true})
-					} else if (e.task === action.task && e.check === true){
+							check: true,
+							id: e.id})
+					} else if (e.id === action.id && e.check === true){
 						return({
 							task: e.task, 
-							check: false})
-					} else if (e.task !== action.task && e.check === true){
+							check: false,
+							id: e.id})
+					} else if (e.id !== action.id && e.check === true){
 						return({
 							task: e.task, 
-							check: true})
+							check: true,
+							id: e.id})
 					} else {
 						return({
 							task: e.task, 
-							check: false})
-					}
-					
-					})
+							check: false,
+							id: e.id})
+					}})
 				]}
 		default:
 			return state;
@@ -66,14 +69,14 @@ export const addTaskAC = (task) => ({
 	task
 })
 
-export const removeTaskAC = (task) => ({
+export const removeTaskAC = (id) => ({
 	type: REMOVE_TASK,  
-	task
+	id
 })
 
-export const checkTaskAC = (task) => ({
+export const checkTaskAC = (id) => ({
 	type: CHECK_TASK,  
-	task
+	id
 })
 
 export default ToDoReducer

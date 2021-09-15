@@ -24,11 +24,12 @@ const mapDispatchToProps = (dispatch) => {
 		addTask: (task) => {
 			dispatch(addTaskAC(task))
 		},
-		removeTask: (index) => {
-			dispatch(removeTaskAC(index))
+		removeTask: (id) => {
+			dispatch(removeTaskAC(id))
 		},
-		checkTask: (index) => {
-			dispatch(checkTaskAC(index))
+		checkTask: (id) => {
+			dispatch(checkTaskAC(id))
+			
 		}
 	}
 }

@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.focus{
+	left: -11px!important;
+   top: -9px!important;
+	color: rgb(55, 51, 54)!important;
+	transform: scale(0.8);
+}
+
